@@ -30,8 +30,11 @@
 			  <section data-markdown="markdown/why1.md"></section>
 			  <section data-markdown="markdown/why2.md"></section>
 			  <section data-markdown="markdown/why3.md"></section>
-			  <section data-markdown="markdown/modularity_maximizaton.md"></section>
-			  <section data-markdown="markdown/phylogeographic_inference.md"></section>
+			  <section data-markdown="markdown/modularity_maximization.md"></section>
+			  <section data-markdown="markdown/methods_modularity_maxmization.md"></section>
+			  <section data-markdown="markdown/predictors.md"></section>
+			  <section data-markdown="markdown/methods_predictors.md"></section>
+			  <section data-markdown="markdown/source_sink.md"></section>
 			  <section data-markdown="markdown/hypothesis_testing.md"></section>
 			  <section data-markdown="markdown/epidemiological_simulations.md"></section>				
 			</div>
@@ -50,7 +53,11 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			        // Zoom in and out with Alt+click
+			{ src: 'plugin/zoom-js/zoom.js', async: true },			
+			// MathJax
+			{ src: 'plugin/math/math.js', async: true }
 				]
 			});
 		</script>
