@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 		sass: {
 			core: {
 				files: {
-					'css/reveal.css': 'css/reveal.scss',
+				  'css/reveal.css': 'css/reveal.scss'
 				}
 			},
 			themes: {
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 
 		autoprefixer: {
 			dist: {
-				src: 'css/reveal.css'
+			  src: 'css/reveal.css'
 			}
 		},
 
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+			  files: [ 'css/reveal.scss' ],
 				tasks: 'css-core'
 			},
 			html: {
@@ -135,6 +135,10 @@ module.exports = function(grunt) {
 			markdown: {
 				files: root.map(path => 'markdown/*.md')
 			},
+		        img: {
+				files: root.map(path => 'img/*')
+			},
+
 			options: {
 				livereload: true
 			}

@@ -1166,7 +1166,6 @@ body {
 .reveal .overlay .viewport {
   position: absolute;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   top: 40px;
@@ -1363,3 +1362,18 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+/*********************************************
+ * CUSTOM STYLE
+ *********************************************/
+a.reference {
+  text-align: right;
+  float: right;
+  font-size: 18px;
+  width: 100%; }
+
+img.slide_img {
+  width: 400px; }
+
+img.slide_img_vert {
+  height: 400px; }

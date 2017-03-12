@@ -1,4 +1,4 @@
-Unifying Viral Genetics and Human Transportation Data to Predict the Global Transmission Dynamics of Human Influenza H3N2
+H3N2 Viral Genetic Data + Human Transportation Data
 
 --- 
 
