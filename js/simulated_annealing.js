@@ -1,7 +1,7 @@
 function _doSimulationStep (network, seedNode) {
   var currentSystemTemperature = 1000;
   var freezingTemperature = 0;
-  var coolingFactor = 1;
+  var coolingFactor = 0.5;
   var oldState = seedNode;
   var newState = null;
   var diff = 0;
