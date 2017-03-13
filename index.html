@@ -84,6 +84,40 @@
 			      </table>
 			    </div>
 			  </section>
+			  <section data-markdown="markdown/nuceleotide_substitution_model.md"></section>	
+			  <section data-markdown="markdown/markov_chains.md"></section>
+			  <section>
+			    <h4>MCMC simulation for a normal distribution</h4>
+			    <div style="font-size:18px;">
+			    Mean, mu - Normal Distribution<br>
+			    Standard Deviation, sigma - Uniform Distribution
+			    <table>
+			      <tr>
+				<th>Data</th>
+				<td>183</td>
+				<td>192</td>
+				<td>182</td>
+				<td>183</td>
+				<td>177</td>
+				<td>185</td>
+				<td>188</td>
+				<td>188</td>
+				<td>182</td>
+				<td>185</td>
+			      </tr>
+			    </table>
+			    </div>
+			      <button onclick="sample_loop()">Start sampling</button>
+			      <button onclick="stop_sample_loop()">Stop sampling and plot histograms</button>
+			      <button onclick="clear_samples()">Clear samples</button>
+			      <center>
+			    <div id="mcmc_plots_div" style="width:750px;height:200px;">
+			      <div id="mu_trace_div" style="width:375px;float:left;height:300px;"></div>
+			      <div id="mu_hist_div" style="width:375px;float:left;height:300px;"></div>
+			    </div>
+			      </center>
+			      <a target="_blank" class="reference" href="https://github.com/rasmusab/bayes.js">https://github.com/rasmusab/bayes.js</a>
+			  </section>
 			  <section data-markdown="markdown/predictors.md"></section>
 			  <section data-markdown="markdown/methods_predictors.md"></section>
 			  <section data-markdown="markdown/source_sink.md"></section>
@@ -94,7 +128,13 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<!-- Demo for simulated annealing -->
 		<script src="js/simulated_annealing.js"></script>
+		<!-- Demo for MCMC -->
+		<script src="js/plotly-latest.min.js"></script>
+		<script src="js/bayesjs/mcmc.js"></script>
+		<script src="js/bayesjs/distributions.js"></script>
+		<script src="js/simulate_mcmc.js"></script>		
 		
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
