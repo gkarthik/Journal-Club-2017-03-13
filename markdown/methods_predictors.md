@@ -1,4 +1,4 @@
-<b><i>Method</i></b> : Bayesian stochastic search variable selection
+GLM parametrization utilizing Bayesian stochastic search variable selection
 
 <img src="img/bssvs.png" class="slide_img_vert" />
 

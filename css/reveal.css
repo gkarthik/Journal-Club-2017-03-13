@@ -1363,9 +1363,7 @@ body {
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
 
-/*********************************************
- * CUSTOM STYLE
- *********************************************/
+/* Custom Style */
 a.reference {
   text-align: right;
   float: right;
@@ -1378,10 +1376,9 @@ img.slide_img {
 img.slide_img_vert {
   height: 400px; }
 
-#simulated_annealing_demo td{
-    border: 0px;
-}
+#simulated_annealing_demo td {
+  border: 0px;
+  font-size: 20px; }
 
-#simulated_annealing_demo td.sa_node{
-    border: 1px solid #000;
-}
+#simulated_annealing_demo td.sa_node {
+  border: 1px solid #000; }

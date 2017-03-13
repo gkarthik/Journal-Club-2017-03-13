@@ -4,16 +4,23 @@ function _doSimulationStep (network, seedNode) {
   var coolingFactor = 1;
   var oldState = seedNode;
   var newState = null;
+  var diff = 0;
+  var _name, el;
   var _interval = setInterval(function(){
-    var newState = generateNeighbor(oldState);    
-    acceptNeighbor(newState, oldState);
-    oldState = newState;
+    newState = generateNeighbor(oldState, currentSystemTemperature);
+    newState = acceptNeighbor(newState, oldState, currentSystemTemperature);
     currentSystemTemperature = currentSystemTemperature - coolingFactor;
     updateDiv(network, currentSystemTemperature);
+    _name = newState.name;
+    newState.heat += 1;
+    oldState = newState;
+    el = document.getElementById("sa_node_"+_name.toLowerCase());
+    el.style.border = "3px solid red";
+    console.log(_name);
     if(currentSystemTemperature <= freezingTemperature) {
       clearInterval(_interval);
     }
-  }, 10);
+  }, 20);
 }
 
 function generateNeighbor(_n){
@@ -21,20 +28,33 @@ function generateNeighbor(_n){
   return _n.neighbors[i];
 }
 
-function acceptNeighbor(_new, _old){
-  _new.heat += 1;
+function acceptNeighbor(_new, _old, t){
+  var diff = _new.energy - _old.energy;
+  var e = Math.exp(diff/t);
+  if(Math.random() <= e ){	// As temp decreases probability of moving reduces.
+    return _new;
+  }
+  return _old;
+}
+
+function scaleHeat(h, max, min){
+  return ((h-min)/(max-min));
 }
 
 function getHeatArray(n){
   var h = [];
   for(var t in n){
-    h.push(n[t].heat);
+    h.push(n[t].heat);    
   }
   return h;
 }
 
-function scaleHeat(h, max, min){
-  return ((h-min)/(max-min));
+function getEnergyArray(n){
+  var h = [];
+  for(var t in n){
+    h.push(n[t].energy);    
+  }
+  return h;
 }
 
 function updateDiv(n, currentSystemTemperature){
@@ -48,8 +68,8 @@ function updateDiv(n, currentSystemTemperature){
   for(var t in n){
     _name = n[t].name.toLowerCase();
     el = document.getElementById("sa_node_"+_name);
-    el.innerHTML = _name.toUpperCase() + "<br>" +n[t].heat;
     el.style.background = "hsla(113, 100%, 50%, "+scaleHeat(n[t].heat, max_h, min_h)+")";
+    el.style.border = "0px";
   }
 }
 
@@ -62,23 +82,24 @@ A - B - E - H
 C - D   
 */
 
-function NodeObject(_name){
+function NodeObject(_name, energy){
   var _node = {};
   _node.name = _name;
   _node.neighbors = [];
   _node.heat = 0;
+  _node.energy = energy;
   return _node;
 }
 
 function startSA(){
-  var a = NodeObject("A");
-  var b = NodeObject("B");
-  var c = NodeObject("C");
-  var d = NodeObject("D");
-  var e = NodeObject("E");
-  var h = NodeObject("H");
-  var i = NodeObject("I");
-  var j = NodeObject("J");
+  var a = NodeObject("A", Math.floor(Math.random() * 1000));
+  var b = NodeObject("B", Math.floor(Math.random() * 1000));
+  var c = NodeObject("C", Math.floor(Math.random() * 1000));
+  var d = NodeObject("D", Math.floor(Math.random() * 1000));
+  var e = NodeObject("E", Math.floor(Math.random() * 1000));
+  var h = NodeObject("H", Math.floor(Math.random() * 1000));
+  var i = NodeObject("I", Math.floor(Math.random() * 1000));
+  var j = NodeObject("J", Math.floor(Math.random() * 1000));
   var _nodes = [a, b, c, d, e, h, i, j];
   a.neighbors = [b, c];
   b.neighbors = [a, d, e];
@@ -89,5 +110,13 @@ function startSA(){
   i.neighbors = [h, j];
   j.neighbors = [i];
   console.log(_nodes);
-  _doSimulationStep(_nodes, h);
+  var el, n = _nodes, _name = "";
+  for(var t in n){
+    _name = n[t].name.toLowerCase();
+    el = document.getElementById("sa_node_"+_name);
+    el.innerHTML = _name.toUpperCase() + "<br>" +n[t].energy;
+  }
+  setTimeout(function(){
+      _doSimulationStep(_nodes, h);
+  }, 3000);
 }

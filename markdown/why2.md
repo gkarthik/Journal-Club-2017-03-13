@@ -1,4 +1,4 @@
-Travel and Trade facilitate rapid spread of H3N2
+Hypothesis: Travel and Trade facilitate rapid spread of H3N2
 
 <img src="./img/transmission_influenza.jpg" class="slide_img_vert" />
 

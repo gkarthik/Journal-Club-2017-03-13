@@ -83,14 +83,16 @@
 				</tr>				
 			      </table>
 			    </div>
+			    * Might not always find global minimum.
 			  </section>
 			  <section data-markdown="markdown/nuceleotide_substitution_model.md"></section>	
 			  <section data-markdown="markdown/markov_chains.md"></section>
+			  <section data-markdown="markdown/bayesian_parameters.md"></section>			  
 			  <section>
 			    <h4>MCMC simulation for a normal distribution</h4>
 			    <div style="font-size:18px;">
-			    Mean, mu - Normal Distribution<br>
-			    Standard Deviation, sigma - Uniform Distribution
+			    Mean, mu - Drawn from a Normal Distribution<br>
+			    Standard Deviation, sigma - Drawn from a Uniform Distribution
 			    <table>
 			      <tr>
 				<th>Data</th>
@@ -107,7 +109,11 @@
 			      </tr>
 			    </table>
 			    </div>
-			      <button onclick="sample_loop()">Start sampling</button>
+			    If we don't know the distribution of data, how do we approximate the most probable value(mean)?
+			    <img src="img/mcmc_simulation_step.png">
+			  </section>
+			  <section>
+			    <button onclick="sample_loop()">Start sampling</button>
 			      <button onclick="stop_sample_loop()">Stop sampling and plot histograms</button>
 			      <button onclick="clear_samples()">Clear samples</button>
 			      <center>
@@ -118,11 +124,12 @@
 			      </center>
 			      <a target="_blank" class="reference" href="https://github.com/rasmusab/bayes.js">https://github.com/rasmusab/bayes.js</a>
 			  </section>
-			  <section data-markdown="markdown/predictors.md"></section>
 			  <section data-markdown="markdown/methods_predictors.md"></section>
+			  <section data-markdown="markdown/predictors.md"></section>
 			  <section data-markdown="markdown/source_sink.md"></section>
-			  <section data-markdown="markdown/hypothesis_testing.md"></section>
-			  <section data-markdown="markdown/epidemiological_simulations.md"></section>				
+			  <section data-markdown="markdown/epidemiological_simulations.md"></section>
+			  <section data-markdown="markdown/correlation.md"></section>
+			  <section>Questions?</section>
 			</div>
 		</div>
 
