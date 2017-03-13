@@ -1377,3 +1377,11 @@ img.slide_img {
 
 img.slide_img_vert {
   height: 400px; }
+
+#simulated_annealing_demo td{
+    border: 0px;
+}
+
+#simulated_annealing_demo td.sa_node{
+    border: 1px solid #000;
+}

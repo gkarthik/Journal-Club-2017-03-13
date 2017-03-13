@@ -8,8 +8,6 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/sky.css">
-		<!-- Custom stylesheet -->
-		<link rel="stylesheet" href="css/main.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -31,7 +29,61 @@
 			  <section data-markdown="markdown/why2.md"></section>
 			  <section data-markdown="markdown/why3.md"></section>
 			  <section data-markdown="markdown/modularity_maximization.md"></section>
-			  <section data-markdown="markdown/methods_modularity_maxmization.md"></section>
+			  <section data-markdown="markdown/methods_modularity_maximization.md"></section>
+			  <section>
+			    <!-- Demo for simulated annealing -->
+			    <div id="simulated_annealing_demo">
+			      <input type="button" onclick="startSA();" value="Run Simulation" />
+			      <p>Temperature : <span id="show_temperature"></span></p>
+			      <table>
+				<tr>
+				  <td><td>
+				  <td><td>
+				  <td><td>
+				  <td><td>
+				  <td class="sa_node" id='sa_node_j' >J</td>
+				  <td>-<td> 
+				  <td class="sa_node" id='sa_node_i' >I</td>
+				</tr>
+				<tr>
+				  <td><td>
+				  <td><td>
+				  <td><td>
+				  <td><td>
+				  <td></td>
+				  <td><td>
+				  <td>|</td>				  
+				</tr>				
+				<tr>
+				  <td class="sa_node" id='sa_node_a' >A<td>
+				  <td>-<td> 
+				  <td class="sa_node" id='sa_node_b' >B<td>
+				  <td>-<td> 
+				  <td class="sa_node" id='sa_node_e' >E</td>
+				  <td>-<td> 
+				  <td class="sa_node" id='sa_node_h' >H</td>
+				</tr>
+				<tr>
+				  <td>|<td>
+				  <td><td>
+				  <td>|<td>
+				  <td><td>
+				  <td></td>
+				  <td><td>
+				  <td></td>				  
+				</tr>
+				<tr>
+				  <td class="sa_node" id='sa_node_c' >C<td>
+				  <td>-<td> 
+				  <td class="sa_node" id='sa_node_d' >D<td>
+				  <td><td>
+				  <td></td>
+				  <td><td> 
+				  <td></td>
+				</tr>				
+			      </table>
+			    </div>
+			  </section>
 			  <section data-markdown="markdown/predictors.md"></section>
 			  <section data-markdown="markdown/methods_predictors.md"></section>
 			  <section data-markdown="markdown/source_sink.md"></section>
@@ -42,7 +94,8 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-
+		<script src="js/simulated_annealing.js"></script>
+		
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
